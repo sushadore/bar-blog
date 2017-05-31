@@ -1,6 +1,7 @@
-
 <ul>
   {{#each model as |entry|}}
      <li><h3>{{entry.title}}</<h3><br> {{entry.content}}<br><strong>{{entry.date}}</strong></li>
   {{/each}}
 </ul>
+
+{{new-entry saveEntry="saveEntry"}}
