@@ -1,3 +1,16 @@
-
-
-{{outlet}}
+<div class="container">
+  <header class="jumbotron">
+    <h1>Your Bartender Loves You Because...</h1>
+  </header>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      {{outlet}}
+      <hr>
+      <footer>
+        {{#link-to "about"}}About{{/link-to}}
+        {{#link-to "contact"}}Contact Me{{/link-to}}
+        {{#link-to "index"}}Home{{/link-to}}
+      </footer>
+    </div>
+  </div>
+</div>
