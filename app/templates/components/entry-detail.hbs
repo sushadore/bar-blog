@@ -1,6 +1,6 @@
-<h2>Entry Details</h2>
-<h4>Title: {{entry.title}}</h4>
-<h4>Date: {{entry.date}}</h4>
-<h4>Content: {{entry.content}}</h4>
+<h2>{{entry.title}}</h2>
+<h4>{{entry.date}}</h4>
+ {{entry.content}}
 
-<button class="btn" {{action "delete" rental}}>Delete</button>
+<br>
+<button class="btn" {{action "delete" entry}}>Delete</button>
