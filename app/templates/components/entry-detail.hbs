@@ -2,11 +2,34 @@
 <h4>{{entry.date}}</h4>
  {{entry.content}}
 
+<button class="btn" {{action "delete" entry}}>Delete</button>
+{{#if updateEntryForm}}
+  <h2>Update {{entry.title}}</h2>
+  <div>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        {{input class="form-control" value=title id="author" placeholder=entry.title}}
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        {{input class="form-control" value=date id="date" placeholder=entry.date}}
+      </div>
+      <div class="form-group">
+        <label for="content">Content</label>
+        {{textarea rows=5 class="form-control" value=content id="content" placeholder=entry.content}}
+      </div>
+      <button class="btn" {{action "update" entry}}>Save</button>
+    </form>
+  </div>
+{{else}}
+  <button class="btn" {{action "updateEntryForm"}}>Update</button>
+{{/if}}
+
+<br>
 <h3>Comments</h3>
 <ul>
   {{#each entry.comments as |comment|}}
-    {{comment-tile comment=comment destroyComment="destroyComment"}}
+  {{comment-tile comment=comment destroyComment="destroyComment"}}
   {{/each}}
 </ul>
-<br>
-<button class="btn" {{action "delete" entry}}>Delete</button>
