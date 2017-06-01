@@ -2,5 +2,11 @@
 <h4>{{entry.date}}</h4>
  {{entry.content}}
 
+<h3>Comments</h3>
+<ul>
+  {{#each entry.comments as |comment|}}
+    {{comment-tile comment=comment}}
+  {{/each}}
+</ul>
 <br>
 <button class="btn" {{action "delete" entry}}>Delete</button>
