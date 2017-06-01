@@ -15,6 +15,9 @@ export default Ember.Route.extend({
       this.transitionTo("entry");
     },
     destroyEntry(entry) {
+      var comment_deletions = entry.get("comments").map(function(comment) {
+        return comment.destroyRecord();
+      })
       entry.destroyRecord();
       this.transitionTo("index");
     },
@@ -26,6 +29,10 @@ export default Ember.Route.extend({
         return entry.save();
       });
       this.transitionTo("entry", entry);
+    },
+    destroyComment(comment) {
+      comment.destroyRecord();
+      this.transitionTo("index");
     }
   }
 });

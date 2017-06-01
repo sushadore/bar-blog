@@ -5,7 +5,7 @@
 <h3>Comments</h3>
 <ul>
   {{#each entry.comments as |comment|}}
-    {{comment-tile comment=comment}}
+    {{comment-tile comment=comment destroyComment="destroyComment"}}
   {{/each}}
 </ul>
 <br>
