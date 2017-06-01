@@ -1,7 +1,15 @@
 <ul>
-  {{#each model as |entry|}}
+  {{#each model.entries as |entry|}}
      {{entry-tile entry=entry}}
   {{/each}}
 </ul>
 
 {{new-entry saveEntry="saveEntry"}}
+
+<ul>
+  {{#each model.comments as |comment|}}
+    <li>{{comment.date}}: {{comment.name}}, {{comment.comment}}</li>
+  {{/each}}
+</ul>
+
+{{new-comment saveComment="saveComment"}}

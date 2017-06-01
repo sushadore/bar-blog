@@ -2,13 +2,20 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll("entry");
-  },
-
+    return Ember.RSVP.hash({
+      entries: this.store.findAll("entry"),
+      comments: this.store.findAll("comment")
+  });
+},
   actions: {
     saveEntry(params) {
       var newEntry = this.store.createRecord("entry", params);
       newEntry.save();
+      this.transitionTo("index");
+    },
+    saveComment(params) {
+      var newComment = this.store.createRecord("comment", params);
+      newComment.save();
       this.transitionTo("index");
     }
   }
